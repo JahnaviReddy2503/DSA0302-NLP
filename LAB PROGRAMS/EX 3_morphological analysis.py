@@ -4,6 +4,7 @@ from nltk.stem import PorterStemmer
 
 # Download tokenizer (Run only once)
 nltk.download('punkt')
+nltk.download('punkt_tab')
 
 # Create stemmer
 stemmer = PorterStemmer()
