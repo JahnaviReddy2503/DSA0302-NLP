@@ -34,3 +34,4 @@ if result:
         print(key, ":", value)
 else:
     print("Invalid FOPC expression")
+    print()
