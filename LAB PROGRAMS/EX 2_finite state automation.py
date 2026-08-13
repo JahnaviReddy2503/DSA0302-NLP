@@ -10,4 +10,4 @@ def fsa(string):
 text = input("Enter a string: ")
 
 # Function call
-fsa(text)
+fsa(text)girls are playing
