@@ -1,13 +1,38 @@
-# Finite State Automaton to recognize strings ending with 'ab'
+def finite_automaton(string):
+    state = "q0"
+    path = [state]
 
-def fsa(string):
-    if string.endswith("ab"):
+    for symbol in string:
+        if state == "q0":
+            if symbol == "a":
+                state = "q1"
+            else:
+                state = "q0"
+
+        elif state == "q1":
+            if symbol == "a":
+                state = "q1"
+            elif symbol == "b":
+                state = "q2"
+            else:
+                state = "q0"
+
+        elif state == "q2":
+            if symbol == "a":
+                state = "q1"
+            else:
+                state = "q0"
+
+        path.append(state)
+
+    print("Transition Path:", " → ".join(path))
+
+    if state == "q2":
         print("Accepted")
     else:
         print("Rejected")
 
-# Input from user
-text = input("Enter a string: ")
 
-# Function call
-fsa(text)girls are playing
+string = input("Enter a string: ")
+
+finite_automaton(string)
