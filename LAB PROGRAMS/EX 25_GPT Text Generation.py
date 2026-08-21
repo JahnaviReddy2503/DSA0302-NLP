@@ -1,15 +1,17 @@
-from openai import OpenAI
+from transformers import pipeline
 
-client = OpenAI(api_key=input("Enter your OpenAI API key: "))
+generator = pipeline(
+    "text-generation",
+    model="distilgpt2"
+)
 
 prompt = input("Enter a prompt: ")
 
-response = client.completions.create(
-    model="gpt-3.5-turbo-instruct",
-    prompt=prompt,
-    max_tokens=100,
-    temperature=0.7
+result = generator(
+    prompt,
+    max_new_tokens=50,
+    num_return_sequences=1
 )
 
 print("\nGenerated Text:")
-print(response.choices[0].text.strip())
+print(result[0]["generated_text"])
