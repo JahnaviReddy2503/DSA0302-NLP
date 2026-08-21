@@ -4,10 +4,12 @@ client = OpenAI(api_key=input("Enter your OpenAI API key: "))
 
 prompt = input("Enter a prompt: ")
 
-response = client.responses.create(
+response = client.completions.create(
     model="gpt-3.5-turbo-instruct",
-    input=prompt
+    prompt=prompt,
+    max_tokens=100,
+    temperature=0.7
 )
 
 print("\nGenerated Text:")
-print(response.output_text)
+print(response.choices[0].text.strip())
