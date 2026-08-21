@@ -36,4 +36,4 @@ print("\nCoherence Score:", round(coherence, 2))
 if coherence >= 0.2:
     print("Text is Coherent")
 else:
-    print("Text is Less Coherent")
+    print("the Text is Less Coherent")
